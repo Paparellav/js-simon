@@ -4,7 +4,7 @@
 
 // Visualizzare nel browser i 5 numeri che l'utente dovrà memorizzare [*];
 // Far partire un timer di 30 secondi dopo il quale i numeri verrano oscurati [*];
-// Chiedere all'utente per 5 volte (ciclo for) tramite il prompt i numeri che ricorda di aver visto [];
+// Chiedere all'utente per 5 volte (ciclo for) tramite il prompt i numeri che ricorda di aver visto [*];
 // Confrontare i numeri dell'utente con i numeri visualizzati [];
 // Stampare il risultato finale e i numeri azzeccati [];
 
@@ -23,15 +23,31 @@ function myFunction () {
     numbers.classList.add("hidden");
 }
 
+
 function askUser () {
-    let userArray = [];
+    const userArray = [];
     let userChoice = "";
     for (let i = 0; i < 5; i++) {
         userChoice = parseInt(prompt('Inserisci un numero che credi di aver memorizzato'));
         userArray.push(userChoice);
     }
-    console.log(userArray);
-    return userArray;
+    
+    const commonNumbers = [];
+    for (let i = 0; i < rndNumbersArray.length; i++) {
+        if (rndNumbersArray[i] === userArray[i]) {
+            commonNumbers.push(userArray[i]);
+        }
+    }
+
+    console.log(commonNumbers);
+    const result = document.getElementById("result");
+    const result2 = document.getElementById("result2");
+    const result3 = document.getElementById("result3");
+    result.innerHTML = `I numeri inizialmente visualizzati erano: ${rndNumbersArray}.`;
+    result2.innerHTML = `I numeri che TU hai inserito sono: ${userArray}`;
+    result3.innerHTML = `I numeri in comune sono i seguenti: ${commonNumbers}`;
+
+    return commonNumbers;
 }
 
 function generateRndNumbers (rndInt, numbersRange) {
