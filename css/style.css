@@ -1,4 +1,16 @@
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
+    height: 97vh;
     background-color: black;
-    color: lightsalmon;
+    color: greenyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
 }
